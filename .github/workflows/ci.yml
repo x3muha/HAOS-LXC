@@ -10,4 +10,6 @@ jobs:
       - name: Python unit tests
         run: python3 -m unittest discover -s tests -v
       - name: Shell syntax check
-        run: sh -n tools/preflight.sh
+        run: |
+          sh -n tools/preflight.sh
+          sh -n tools/build_probe.sh
