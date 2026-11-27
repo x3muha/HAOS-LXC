@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+out/
+*.img
+*.img.xz
+*.qcow2
+*.qcow2.xz
+*.tar.gz
+*.raucb
+report*.json

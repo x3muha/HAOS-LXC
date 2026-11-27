@@ -1,0 +1,13 @@
+name: Prototype checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Shell syntax check
+        run: sh -n tools/preflight.sh
