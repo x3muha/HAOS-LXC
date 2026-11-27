@@ -4,6 +4,12 @@ Noch kein betriebsbereites HAOS. Ziel: originaler HAOS-Userspace mit systemd in 
 
 ## A. Originalimage extrahieren (Build-Worker)
 
+**Automatisierter Weg:** Installiere die unten genannten Werkzeuge sowie Cosign aus einer vertrauenswürdigen Quelle. Nach dem Git-Clone als normaler Benutzer im Wegwerf-Build-Worker ausführen:
+
+    sh tools/build_probe.sh out/verified-build
+
+Lädt ausschließlich die gepinnte HAOS-Version 18.4, prüft Signatur/Identität und den Hash, extrahiert und erzeugt lokal den Probe-CT. Der Ausgabeordner muss neu sein. Bei einem Fehler wird abgebrochen; insbesondere die Cosign-Identität nicht aufweichen. Die erwartete Release-Workflow-Identität ist aus der Upstream-Build-Konfiguration abgeleitet und muss im ersten echten Durchlauf bestätigt werden. Der GitHub-Workflow `Upstream image build probe` führt denselben Ablauf aus, veröffentlicht aber nur Diagnoseberichte, kein Template. Der folgende manuelle Weg bleibt für Fehlersuche und getrennte Schritte erhalten.
+
     sudo apt update
     sudo apt install python3-guestfs libguestfs-tools xz-utils git
 

@@ -7,6 +7,7 @@ Independent, unofficial adaptation of the upstream Home Assistant OS Buildroot u
 - Extract and inventory the original system filesystem from a fresh, verified raw HAOS disk image.
 - Produce a deliberately restricted systemd boot-probe template locally. No Docker, Supervisor, networking, RAUC, physical-disk management or application services in this stage.
 - Fixture tests, CI and a reproducible Proxmox smoke-test procedure.
+- Pinned upstream-image build script with fail-closed Sigstore verification; a separate GitHub Actions workflow attempts the actual extraction and probe build, uploading diagnostics only. First real build remains unverified.
 - Actual HAOS image extraction and Proxmox boot are not yet validated.
 
 The initial target is generic x86-64 HAOS 18.4. HAOS 18.5 is a Raspberry Pi-only release. Do not assume other releases are compatible. No HAOS binaries or derived templates are distributed in this repository. Never use a production image or CT, privileged LXC, host block devices, host sockets, host bind mounts or unconfined AppArmor.
