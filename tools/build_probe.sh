@@ -21,6 +21,7 @@ version=18.4
 asset=haos_generic-x86-64-$version.img.xz
 base=https://github.com/home-assistant/operating-system/releases/download/$version
 identity=https://github.com/home-assistant/operating-system/.github/workflows/build.yaml@refs/tags/$version
+mkdir -p "$(dirname -- "$out")"
 mkdir "$out"
 out=$(CDPATH= cd -- "$out" && pwd)
 work=$(mktemp -d)
